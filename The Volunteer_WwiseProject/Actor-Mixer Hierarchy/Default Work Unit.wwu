@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D07E9989-0632-4E20-8068-D3B97B69CC8D}" SchemaVersion="103">
 	<AudioObjects>
-		<WorkUnit Name="Default Work Unit" ID="{D07E9989-0632-4E20-8068-D3B97B69CC8D}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D07E9989-0632-4E20-8068-D3B97B69CC8D}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="UI" ID="{23AB9D0D-53BF-42F6-BECE-0209844CE913}" ShortID="921376702">
+					<ChildrenList>
+						<Sound Name="menuBack" ID="{67B8414C-EFC2-4056-A4C6-AA23D2F8B1CD}" ShortID="838226143">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-150</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{228808D4-A158-4429-8C9C-D86FBA10FF0E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F8BDC8B2-74F5-40EF-879F-76E9BD057851}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="menuBack" ID="{F44FAB1D-6F6F-443A-A7F5-2EC8F7FAFBF2}">
+									<Language>SFX</Language>
+									<AudioFile>menuBack.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="670669493"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="menuBack" ID="{F44FAB1D-6F6F-443A-A7F5-2EC8F7FAFBF2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="menuClick" ID="{93E2AE7A-4825-473C-B46B-C9D9BE97B259}" ShortID="24443981">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>100</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{228808D4-A158-4429-8C9C-D86FBA10FF0E}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{F8BDC8B2-74F5-40EF-879F-76E9BD057851}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="menuClick" ID="{D2EC9D4D-5888-422C-81BB-783E14CC91D9}">
+									<Language>SFX</Language>
+									<AudioFile>menuClick.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="314976834"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists/>
+							<ActiveSourceList>
+								<ActiveSource Name="menuClick" ID="{D2EC9D4D-5888-422C-81BB-783E14CC91D9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="World" ID="{60D3A712-32E5-49D6-AF9C-53D7A6ED6CFE}" ShortID="507575369"/>
+				<Folder Name="Player" ID="{0326606F-4846-4C55-B9F4-4AD0141E9A88}" ShortID="703528017"/>
+				<Folder Name="Enemy" ID="{2BF5FC2B-E922-43F7-95D5-867021FD84E0}" ShortID="490840220"/>
+			</ChildrenList>
+		</WorkUnit>
 	</AudioObjects>
 </WwiseDocument>
