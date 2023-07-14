@@ -2,35 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using Yarn.Unity;
 
 public class dialogueFunctions : MonoBehaviour
 {
-
-    // An array is used here so we might later do more than two characters
-    // talking simultaneously
-
-    // Also, this is just for me - we use static so we don't need to make an instance
-    // of dialogueFunctions. We wanna use this script like a header
     
-    
-    public static void startDialogue(characterGeneric[] c)
+    [YarnCommand("begin_dialogue")]
+    // This command should not be necessary
+    // Actually, this whole function probably isn't
+    // Keeping it to be safe though
+    public void startDialogue(dialogueInfo d)
     {
-        SceneManager.LoadSceneAsync("dialogueGeneric", LoadSceneMode.Additive);
-        GameObject sp1 = GameObject.Find("Sprite1");
-        SpriteRenderer sr = sp1.GetComponent<SpriteRenderer>();
-
-        sr.sprite = c[0].talkSprite;
-
-        // This works, BUT - it doesn't load the sprite the first time.
-        // That needs to be fixed.
+        dialogueSingleton.Instance.loadDialogue(d, this);
     }
 
-
-    // we should also add a showCharacter function
-
+    [YarnCommand("end_dialogue")]
     public static void endDialogue()
     {
-
+        dialogueSingleton.Instance.endDialogue();
     }
 
 }

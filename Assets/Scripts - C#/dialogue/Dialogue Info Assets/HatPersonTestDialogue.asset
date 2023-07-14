@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645c055d386b7d541be6ac7c964ed35b, type: 3}
   m_Name: HatPersonTestDialogue
   m_EditorClassIdentifier: 
-  nodeName: 
+  nodeName: hatTestDialogue
   sceneChars:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: b763d8f1fb83a984299d469e7aadb5af, type: 2}

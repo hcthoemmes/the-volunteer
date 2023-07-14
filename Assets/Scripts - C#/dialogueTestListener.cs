@@ -21,19 +21,18 @@ public class dialogueTestListener : MonoBehaviour
 
         if (Input.GetKeyDown("z"))
         {
-            dialogueSingleton.Instance.loadDialogue(a);
+            dialogueSingleton.Instance.loadDialogue(a, this);
         }
 
         if (Input.GetKeyDown("x"))
         {
-            dialogueSingleton.Instance.endDialogue();
-            
+            dialogueSingleton.Instance.endDialogue();            
         }
     }
 
     IEnumerator waiter(float time)
     {
-        dialogueSingleton.Instance.loadDialogue(a);
+        dialogueSingleton.Instance.loadDialogue(a, this);
         // this is a debug coroutine. It waits
         yield return new WaitForSeconds(time);
         dialogueSingleton.Instance.endDialogue();

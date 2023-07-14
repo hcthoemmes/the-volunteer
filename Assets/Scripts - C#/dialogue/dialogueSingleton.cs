@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Yarn.Unity;
 
 // The artist FKA grodyDialogueManagerSingleton
 
@@ -22,7 +23,7 @@ public sealed class dialogueSingleton
      * 
      */
 
-    // Also - if it accepts characterGeneric, it'll accept the children of
+    // Also - if a thing accepts characterGeneric, it'll accept the children of
     // characterGeneric too. That makes that easy!
 
     public static dialogueSingleton Instance
@@ -40,16 +41,17 @@ public sealed class dialogueSingleton
         }
     }
 
-    /* Maybe on an enter event? We get all the characters in the scene, and then we
-     * put a knife in their gullet. No, we actually just load them into an array
-    */
-    public void loadDialogue(dialogueInfo d)
+
+    // MonoBehaviour taken as a parameter to use coroutines
+    public void loadDialogue(dialogueInfo d, MonoBehaviour mono)
     {
         if(dialogueState == 0)
         {
-            SceneManager.LoadScene("dialogueGeneric", LoadSceneMode.Additive);
-            Debug.Log("Dialogue loaded.");
+            mono.StartCoroutine(loadScene(mono, d));
+            Debug.Log("Dialogue loading.");
             dialogueState = 1;
+
+            DialogueRunner dr = GameObject.FindObjectOfType<DialogueRunner>();
         }
         else
         {
@@ -75,8 +77,40 @@ public sealed class dialogueSingleton
         return;
     }
 
-    public void testFunction()
+    IEnumerator monoBorrowTest()
     {
-        Debug.Log("Singleton test called.");
+        Debug.Log("Test running!");
+        yield return new WaitForSeconds(3f);
+        Debug.Log("Closing now!");
+        yield return null;
     }
+
+    // Asynchronously load dialogue scene, wait for completion
+    IEnumerator loadScene(MonoBehaviour m, dialogueInfo d)
+    {
+        AsyncOperation aO = SceneManager.LoadSceneAsync("dialogueGeneric", LoadSceneMode.Additive);
+
+        while (!aO.isDone)
+        { yield return null; }
+
+        // Once complete, load assets into scene
+        aO.allowSceneActivation = false;
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
+            Debug.Log("Active scene: " + SceneManager.GetActiveScene().name);
+            yield return m.StartCoroutine(loadAssets(d));
+        aO.allowSceneActivation = true;
+
+        Debug.Log("Dialogue scene loaded");
+
+        // Set active
+        // SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
+    }
+
+    IEnumerator loadAssets(dialogueInfo d)
+    {
+        // Set node
+        Debug.Log("Assets loaded!");
+        yield return null;
+    }
+
 }

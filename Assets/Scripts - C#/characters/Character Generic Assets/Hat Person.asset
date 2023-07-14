@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Hat Person
   m_EditorClassIdentifier: 
   charName: Hat Person
-  talkSprite: {fileID: 0}
-  areaSprite: {fileID: -4622994262896005569, guid: 8b72ae960ccd3d64db5135d61b0d07c7, type: 3}
+  talkSprite: {fileID: 21300000, guid: 38b4566310a0a1646b31d205f681866f, type: 3}
+  areaSprite: {fileID: 0}
