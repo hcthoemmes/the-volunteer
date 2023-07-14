@@ -11,6 +11,8 @@ public class dialogueFunctions : MonoBehaviour
 
     // Also, this is just for me - we use static so we don't need to make an instance
     // of dialogueFunctions. We wanna use this script like a header
+    
+    
     public static void startDialogue(characterGeneric[] c)
     {
         SceneManager.LoadSceneAsync("dialogueGeneric", LoadSceneMode.Additive);
@@ -19,10 +21,10 @@ public class dialogueFunctions : MonoBehaviour
 
         sr.sprite = c[0].talkSprite;
 
-        // Load dialogueGeneric scene
-        // Turn down the gamma, or otherwise darken, the scene that was loaded from
-        // get the characters from c and load their talkSprites into the scene
+        // This works, BUT - it doesn't load the sprite the first time.
+        // That needs to be fixed.
     }
+
 
     // we should also add a showCharacter function
 
