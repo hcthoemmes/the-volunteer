@@ -10,7 +10,8 @@ using UnityEngine;
  * Any characters should derive from this class.
  */
 
-public class characterGeneric : MonoBehaviour
+[CreateAssetMenu(menuName ="Create Generic Character")]
+public class characterGeneric : ScriptableObject
 {
     // Only definitions here, probably
     public string charName;

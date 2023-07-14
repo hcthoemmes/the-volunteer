@@ -8,9 +8,11 @@ public class dialogueTestListener : MonoBehaviour
     // We're just doing this to have a simple way to test loading
     // characters into the dialogueGeneric scene.
 
+    [SerializeField] private dialogueInfo a;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,15 +21,23 @@ public class dialogueTestListener : MonoBehaviour
 
         if (Input.GetKeyDown("z"))
         {
-            characterGeneric hatChar = GameObject.Find("hatPerson").GetComponent<characterGeneric>();
-            characterGeneric[] usedChars = new characterGeneric[] { hatChar };
-            dialogueFunctions.startDialogue(usedChars);
+            dialogueSingleton.Instance.loadDialogue(a);
         }
 
         if (Input.GetKeyDown("x"))
         {
-
+            dialogueSingleton.Instance.endDialogue();
+            
         }
-
     }
+
+    IEnumerator waiter(float time)
+    {
+        dialogueSingleton.Instance.loadDialogue(a);
+        // this is a debug coroutine. It waits
+        yield return new WaitForSeconds(time);
+        dialogueSingleton.Instance.endDialogue();
+        yield return null;
+    }
+
 }
