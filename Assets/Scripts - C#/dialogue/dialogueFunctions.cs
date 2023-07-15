@@ -22,6 +22,13 @@ public class dialogueFunctions : MonoBehaviour
         dialogueSingleton.Instance.endDialogue();
     }
 
+    
+    [YarnCommand("load_sprite")]
+    public static void loadSprite(string direction, string name)
+    {
+
+    }
+
 }
 
 

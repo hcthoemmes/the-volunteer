@@ -41,7 +41,6 @@ public sealed class dialogueSingleton
         }
     }
 
-
     // MonoBehaviour taken as a parameter to use coroutines
     public void loadDialogue(dialogueInfo d, MonoBehaviour mono)
     {
@@ -50,8 +49,6 @@ public sealed class dialogueSingleton
             mono.StartCoroutine(loadScene(mono, d));
             Debug.Log("Dialogue loading.");
             dialogueState = 1;
-
-            DialogueRunner dr = GameObject.FindObjectOfType<DialogueRunner>();
         }
         else
         {
@@ -77,6 +74,11 @@ public sealed class dialogueSingleton
         return;
     }
 
+    void loadCharacter()
+    {
+
+    }
+
     IEnumerator monoBorrowTest()
     {
         Debug.Log("Test running!");
@@ -93,11 +95,24 @@ public sealed class dialogueSingleton
         while (!aO.isDone)
         { yield return null; }
 
-        // Once complete, load assets into scene
+        // Once load is complete, load assets into scene
         aO.allowSceneActivation = false;
+
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
             Debug.Log("Active scene: " + SceneManager.GetActiveScene().name);
+
+            // This may be redundant
             yield return m.StartCoroutine(loadAssets(d));
+
+            DialogueRunner dR;
+            dR = GameObject.Find("Dialogue System").GetComponent<DialogueRunner>();
+            dR.Stop(); // Cancel the autoloaded dialogue. This feels cheap... but works.
+            dR.StartDialogue(d.nodeName);
+
+            // JUST TESTING: Loading up sprites.
+            SpriteRenderer sL = GameObject.Find("leftSprite").GetComponent<SpriteRenderer>();
+            sL.sprite = d.sceneChars[0].talkSprite;
+
         aO.allowSceneActivation = true;
 
         Debug.Log("Dialogue scene loaded");
@@ -108,6 +123,8 @@ public sealed class dialogueSingleton
 
     IEnumerator loadAssets(dialogueInfo d)
     {
+
+
         // Set node
         Debug.Log("Assets loaded!");
         yield return null;

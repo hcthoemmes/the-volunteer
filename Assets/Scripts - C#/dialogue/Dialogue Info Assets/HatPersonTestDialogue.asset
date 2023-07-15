@@ -15,3 +15,4 @@ MonoBehaviour:
   nodeName: hatTestDialogue
   sceneChars:
   - {fileID: 11400000, guid: b763d8f1fb83a984299d469e7aadb5af, type: 2}
+  - {fileID: 0}
