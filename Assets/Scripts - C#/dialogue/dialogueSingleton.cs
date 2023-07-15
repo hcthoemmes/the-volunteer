@@ -98,6 +98,9 @@ public sealed class dialogueSingleton
         // Once load is complete, load assets into scene
         aO.allowSceneActivation = false;
 
+            // Todo: Unload, and then later reload, the EventSystem in the scene that called this. Not necessary, but
+            // Unity keeps throwing a lot of complaints.
+
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
             Debug.Log("Active scene: " + SceneManager.GetActiveScene().name);
 

@@ -9,6 +9,7 @@ public class dialogueTestListener : MonoBehaviour
     // characters into the dialogueGeneric scene.
 
     [SerializeField] private dialogueInfo a;
+    [SerializeField] private dialogueInfo b;
 
     void Start()
     {
@@ -25,6 +26,11 @@ public class dialogueTestListener : MonoBehaviour
         }
 
         if (Input.GetKeyDown("x"))
+        {
+            dialogueSingleton.Instance.loadDialogue(b, this);
+        }
+
+        if (Input.GetKeyDown("c"))
         {
             dialogueSingleton.Instance.endDialogue();            
         }
