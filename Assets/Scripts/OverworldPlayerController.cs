@@ -45,11 +45,11 @@ public class OverworldPlayerController : MonoBehaviour
         bool wantsBrake = Input.GetKey(brakeKey);
 
         // Only allow move direction to reach zero if not moving (braked)
-        if(currentMoveSpeed > brakeThreshold)
-        {
-            if (moveX == 0) moveX = moveDirection.x;
-            if (moveY == 0) moveY = moveDirection.y;
-        }
+        //if(currentMoveSpeed > brakeThreshold)
+        //{
+        //    if (moveX == 0) moveX = moveDirection.x;
+        //    if (moveY == 0) moveY = moveDirection.y;
+        //}
 
         moveDirection = new Vector2(moveX, moveY).normalized;
 

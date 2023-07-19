@@ -113,6 +113,7 @@ public sealed class dialogueSingleton
             dR.StartDialogue(d.nodeName);
 
             // JUST TESTING: Loading up sprites.
+            // PUT IT IN A SEPARATE FUNCTION
             SpriteRenderer sL = GameObject.Find("leftSprite").GetComponent<SpriteRenderer>();
             sL.sprite = d.sceneChars[0].talkSprite;
 
