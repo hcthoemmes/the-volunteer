@@ -1,0 +1,8 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2634859593	menuBack			\Default Work Unit\UI\menuBack	
+	3711598968	menuClick			\Default Work Unit\UI\menuClick	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	314976834	menuClick	C:\Users\Ashley\Documents\GitHub\the-volunteer\The Volunteer_WwiseProject\.cache\Windows\SFX\menuClick_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\menuClick		14166
+	670669493	menuBack	C:\Users\Ashley\Documents\GitHub\the-volunteer\The Volunteer_WwiseProject\.cache\Windows\SFX\menuBack_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\menuBack		11184
+
