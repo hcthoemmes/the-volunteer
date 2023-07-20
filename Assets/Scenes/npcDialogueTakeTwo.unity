@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: {fileID: 11400000, guid: 92baf9af8ee9f0a468ecd8bc3debd77a, type: 2}
   b: {fileID: 11400000, guid: 9bfa339f63717c44d87b148c4d27b732, type: 2}
+  c: {fileID: 11400000, guid: 79785c660b9a75b479aaa2069c766483, type: 2}
 --- !u!4 &27876237
 Transform:
   m_ObjectHideFlags: 0
@@ -405,8 +406,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press Z to talk to the person in the hat, press X to talk to the person
+  m_text: 'Press Z to talk to the person in the hat, press X to talk to the person
     with the torch, or press C to stop conversing with these horrid cretins.
+
+
+    Press
+    A to see something mysterious...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

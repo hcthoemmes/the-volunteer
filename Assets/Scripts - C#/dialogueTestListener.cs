@@ -10,6 +10,7 @@ public class dialogueTestListener : MonoBehaviour
 
     [SerializeField] private dialogueInfo a;
     [SerializeField] private dialogueInfo b;
+    [SerializeField] private dialogueInfo c;
 
     void Start()
     {
@@ -28,6 +29,11 @@ public class dialogueTestListener : MonoBehaviour
         if (Input.GetKeyDown("x"))
         {
             dialogueSingleton.Instance.loadDialogue(b, this);
+        }
+
+        if (Input.GetKeyDown("a"))
+        {
+            dialogueSingleton.Instance.loadDialogue(c, this);
         }
 
         if (Input.GetKeyDown("c"))

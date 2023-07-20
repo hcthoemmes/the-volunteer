@@ -14,9 +14,7 @@ public sealed class dialogueSingleton
     private int dialogueState = 0; // 0 for not in dialogue, 1 for in dialogue
     private static readonly object padlock = new object();
 
-    private dialogueSingleton() {
-    
-    }
+    private dialogueSingleton() { }
 
     /*
      * This class will handle the functional parts of loading dialogue:
@@ -40,6 +38,8 @@ public sealed class dialogueSingleton
             }
         }
     }
+
+    public Dictionary<string, characterGeneric> charsInScene = new();
 
     // MonoBehaviour taken as a parameter to use coroutines
     public void loadDialogue(dialogueInfo d, MonoBehaviour mono)
@@ -74,11 +74,6 @@ public sealed class dialogueSingleton
         return;
     }
 
-    void loadCharacter()
-    {
-
-    }
-
     IEnumerator monoBorrowTest()
     {
         Debug.Log("Test running!");
@@ -101,21 +96,25 @@ public sealed class dialogueSingleton
             // Todo: Unload, and then later reload, the EventSystem in the scene that called this. Not necessary, but
             // Unity keeps throwing a lot of complaints.
 
+            // Set it up such that we have chars by their name
+            foreach (characterGeneric c in d.sceneChars)
+            { charsInScene.Add(c.charName, c); }
+
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
             Debug.Log("Active scene: " + SceneManager.GetActiveScene().name);
 
-            // This may be redundant
+            // This may be redundant or otherwise unnecessary
             yield return m.StartCoroutine(loadAssets(d));
 
             DialogueRunner dR;
             dR = GameObject.Find("Dialogue System").GetComponent<DialogueRunner>();
+            
             dR.Stop(); // Cancel the autoloaded dialogue. This feels cheap... but works.
             dR.StartDialogue(d.nodeName);
+            //In calling up the dialogue with the named node, the Yarn script takes over at this point.
+            // Some of this could probably be put in a dialogueBegin function, or something
 
-            // JUST TESTING: Loading up sprites.
-            // PUT IT IN A SEPARATE FUNCTION
-            SpriteRenderer sL = GameObject.Find("leftSprite").GetComponent<SpriteRenderer>();
-            sL.sprite = d.sceneChars[0].talkSprite;
+            // loadLeftSprite(d);
 
         aO.allowSceneActivation = true;
 
@@ -124,6 +123,63 @@ public sealed class dialogueSingleton
         // Set active
         // SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
     }
+
+
+
+    // --------------------------------------------------------------------------------------------------- //
+    //     This part of the code is all the fun ways to load in a sprite. These fun ways are called in a   //
+    //  chain later on by dialogueFunctions. Anyway, you don't need to worry about this spot when writing  //
+    //                                dialogue. Here be dragons!                                           //
+    // --------------------------------------------------------------------------------------------------- //
+
+    public dialogueSingleton loadSprite(string name, string direction)
+    {
+        // Load, but do not display, the sprite.
+        Sprite s;
+        characterGeneric c;
+
+        charsInScene.TryGetValue(name, out c);
+        s = c.talkSprite;
+
+        // One of these sides needs to flip the sprite along the X-axis.
+        if (direction == "left") {
+            SpriteRenderer sL = findRenderSide("leftSprite");
+            sL.enabled = false;
+            sL.sprite = s;
+            Debug.Log("Left sprite loaded.");
+        } 
+        
+        else if (direction == "right") {
+            SpriteRenderer sR = findRenderSide("rightSprite");
+            sR.enabled = false;
+            sR.sprite = s;
+            Debug.Log("Right sprite loaded.");
+        } 
+        
+        // The if/else could probably be removed entirely by making findRenderSide look for d+"Sprite"
+
+        else {
+            Debug.Log("Invalid direction entered");
+        }
+
+        return Instance;
+    }
+
+    public dialogueSingleton makeVisibleSprite(string side)
+    {
+        SpriteRenderer sr = findRenderSide(side+"Sprite");
+        sr.enabled = true;
+        return Instance;
+    }
+
+    public dialogueSingleton makeInvisibleSprite(string side)
+    {
+        SpriteRenderer sr = findRenderSide(side+"Sprite");
+        sr.enabled = false;
+        return Instance;
+    }
+
+    SpriteRenderer findRenderSide(string d) { return GameObject.Find(d).GetComponent<SpriteRenderer>(); }
 
     IEnumerator loadAssets(dialogueInfo d)
     {
