@@ -12,6 +12,8 @@ public class OverworldAreaPoint : MonoBehaviour
 
     OverworldPlayerController playerController;
 
+    [SerializeField] private AK.Wwise.Event playerCollideSound;
+
     private void Start()
     {
         playerController = null;
@@ -23,6 +25,7 @@ public class OverworldAreaPoint : MonoBehaviour
         {
             playerController = collision.gameObject.GetComponent<OverworldPlayerController>();
             canEnterLevel = true;
+            playerCollideSound.Post(gameObject);
         }
     }
 

@@ -8,9 +8,13 @@ public class dialogueTestListener : MonoBehaviour
     // We're just doing this to have a simple way to test loading
     // characters into the dialogueGeneric scene.
 
+    [Header("Dialogue to Load")]
     [SerializeField] private dialogueInfo a;
     [SerializeField] private dialogueInfo b;
     [SerializeField] private dialogueInfo c;
+
+    [Header("Noises")]
+    [SerializeField] private AK.Wwise.Event pressSound;
 
     void Start()
     {
@@ -24,21 +28,25 @@ public class dialogueTestListener : MonoBehaviour
         if (Input.GetKeyDown("z"))
         {
             dialogueSingleton.Instance.loadDialogue(a, this);
+            pressSound.Post(gameObject);
         }
 
         if (Input.GetKeyDown("x"))
         {
             dialogueSingleton.Instance.loadDialogue(b, this);
+            pressSound.Post(gameObject);
         }
 
         if (Input.GetKeyDown("a"))
         {
             dialogueSingleton.Instance.loadDialogue(c, this);
+            pressSound.Post(gameObject);
         }
 
         if (Input.GetKeyDown("c"))
         {
-            dialogueSingleton.Instance.endDialogue();            
+            dialogueSingleton.Instance.endDialogue();
+            pressSound.Post(gameObject);
         }
     }
 

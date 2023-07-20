@@ -96,9 +96,9 @@ public sealed class dialogueSingleton
             // Todo: Unload, and then later reload, the EventSystem in the scene that called this. Not necessary, but
             // Unity keeps throwing a lot of complaints.
 
-            // Set it up such that we have chars by their name
+            // Set it up such that we have chars by their name. We also need to clear the dictionary when the scene is unloaded.
             foreach (characterGeneric c in d.sceneChars)
-            { charsInScene.Add(c.charName, c); }
+            { if (!charsInScene.ContainsKey(c.charName)) { charsInScene.Add(c.charName, c); } }
 
             SceneManager.SetActiveScene(SceneManager.GetSceneByName("dialogueGeneric"));
             Debug.Log("Active scene: " + SceneManager.GetActiveScene().name);
@@ -172,6 +172,7 @@ public sealed class dialogueSingleton
         return Instance;
     }
 
+    // It might be better to make invisible by sprite, rather than side.
     public dialogueSingleton makeInvisibleSprite(string side)
     {
         SpriteRenderer sr = findRenderSide(side+"Sprite");
