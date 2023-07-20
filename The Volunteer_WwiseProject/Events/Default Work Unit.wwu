@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{D6109644-5088-46B4-8257-1AF55F5C910B}" SchemaVersion="103">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{D6109644-5088-46B4-8257-1AF55F5C910B}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{D6109644-5088-46B4-8257-1AF55F5C910B}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="UI" ID="{F596F5EB-6F7F-40F8-9DB3-EA7557DAA842}" ShortID="282805945">
+					<ChildrenList>
+						<Event Name="menuClick" ID="{41FAB483-64CA-4C09-AFDD-B55F18044F03}">
+							<ChildrenList>
+								<Action Name="" ID="{D0DB6411-DA01-40B9-B85A-EB0EC54D3E75}" ShortID="19833040">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="menuClick" ID="{93E2AE7A-4825-473C-B46B-C9D9BE97B259}" WorkUnitID="{D07E9989-0632-4E20-8068-D3B97B69CC8D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="gamePaused" ID="{B2614046-7A9E-4890-8D5E-F311EE9AC197}"/>
+						<Event Name="gameUnpaused" ID="{DB57164C-A0FF-4936-AF04-91610CBCD560}"/>
+						<Event Name="menuBack" ID="{4040347E-DF5B-4D23-983E-3611A4ACED06}">
+							<ChildrenList>
+								<Action Name="" ID="{CA680496-941D-4F8B-B04D-DEC5D389F7D8}" ShortID="7730307">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="menuBack" ID="{67B8414C-EFC2-4056-A4C6-AA23D2F8B1CD}" WorkUnitID="{D07E9989-0632-4E20-8068-D3B97B69CC8D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="World" ID="{46846BED-A069-47C5-B0EA-800E7010874E}" ShortID="924225369"/>
+				<Folder Name="Player" ID="{2852E555-35D3-4779-BFFE-5816B38E1E4E}" ShortID="693106557">
+					<ChildrenList>
+						<Event Name="isRolling" ID="{23C29002-2E3B-41DB-8E9C-0271E56B0A79}"/>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Enemy" ID="{27C07534-88DC-4C1B-863F-927BAFABCE2B}" ShortID="888308170"/>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
