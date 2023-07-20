@@ -12,6 +12,8 @@ public class OverworldAreaPoint : MonoBehaviour
 
     OverworldPlayerController playerController;
 
+    public GameObject loadingScreen;
+
     private void Start()
     {
         playerController = null;
@@ -41,11 +43,19 @@ public class OverworldAreaPoint : MonoBehaviour
             nameDisplayer.SetActive(true);
             if (Input.GetKeyDown(playerController.GetActionKey()))
             {
-                SceneManager.LoadScene(levelToLoad); // Can add extra things like loading screen, etc.
+                
+                StartCoroutine(LoadingLevel(levelToLoad));
             }
         } else
         {
             nameDisplayer.SetActive(false);
         }
+    }
+
+    IEnumerator LoadingLevel(string name)
+    {
+        loadingScreen.SetActive(true);
+        yield return new WaitForSeconds(2.1f);
+        SceneManager.LoadScene(name); // Can add extra things like loading screen, etc.
     }
 }
