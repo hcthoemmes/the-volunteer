@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 645c055d386b7d541be6ac7c964ed35b, type: 3}
-  m_Name: HatPersonTestDialogue
+  m_Name: Method Chain Test Dialogue
   m_EditorClassIdentifier: 
-  nodeName: hatTestDialogue
+  nodeName: newSingletonFunctions
   sceneChars:
   - {fileID: 11400000, guid: b763d8f1fb83a984299d469e7aadb5af, type: 2}
-  - {fileID: 11400000, guid: 144d36d661c87ab4eb86923ccee735ba, type: 2}

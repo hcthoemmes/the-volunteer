@@ -6,28 +6,55 @@ using Yarn.Unity;
 
 public class dialogueFunctions : MonoBehaviour
 {
-    
+
+    // This command should not be necessary and in fact, would not work. We're keeping it in for now anyway
     [YarnCommand("begin_dialogue")]
-    // This command should not be necessary
-    // Actually, this whole function probably isn't
-    // Keeping it to be safe though
     public void startDialogue(dialogueInfo d)
     {
-        dialogueSingleton.Instance.loadDialogue(d, this);
+        dialogueSingleton
+            .Instance
+            .loadDialogue(d, this);
     }
 
     [YarnCommand("end_dialogue")]
     public static void endDialogue()
     {
-        dialogueSingleton.Instance.endDialogue();
+        dialogueSingleton
+            .Instance
+            .endDialogue();
     }
 
-    
-    [YarnCommand("load_sprite")]
-    public static void loadSprite(string direction, string name)
+    // FROM HERE BELOW begin the "load and do something pretty" functions. Here be dragons.
+
+    [YarnCommand("load_left")]
+    public static void loadLeft()
     {
-
+        //dialogueSingleton.Instance.loadLeftSprite();
     }
+
+    [YarnCommand("load_and_show")]
+    public static void loadAndShow(string n, string d)
+    {
+        dialogueSingleton
+            .Instance
+            .loadSprite(n, d)
+            .makeVisibleSprite(d);
+    }
+
+    [YarnCommand("make_invisible")]
+    public static void makeInvisible(string d)
+    {
+        dialogueSingleton
+            .Instance
+            .makeInvisibleSprite(d);
+    }
+
+    //public static void (string name, string direction)
+    // dialogueSingleton.Instance()
+        //.loadSprite ("name", "direction")
+            // loadSprite has to find a sprite by name
+        //.doPrettiness()
+        //.showSprite
 
 }
 
