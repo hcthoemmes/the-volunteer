@@ -36,7 +36,14 @@ public class OverworldPlayerController : MonoBehaviour
     [SerializeField] private float baseSlingshotSpeed = 1f;
     [SerializeField] private float slingSpeedRootMult = 15f; // How fast to slingshot depending on rootedness percentage
 
-    private bool isSlingshotting = false;
+    private bool isSlingshotting = false; // replace with enum for enemy accessibility and ease
+
+    public enum playerState     { slingshotting, rolling, stopped, rooting }
+    public enum stateCommands   { brakeHeld, moveHeld } // not sure if this one will be useful?
+
+    public playerState currentState;
+    public stateCommands playerCommands;
+
     [SerializeField] private Slider rootGaugeSlider;
     private float slingReleaseGaugeLevel, slingReleaseSpeed; // For rootedness percentage bar
 
@@ -129,6 +136,7 @@ public class OverworldPlayerController : MonoBehaviour
             
         }
 
+        // Begin slingshot maneuver
         if(Input.GetKeyUp(brakeKey) && !isSlingshotting) // && moveDirection.magnitude > 0
         {
             slingReleaseSpeed = baseSlingshotSpeed + rootGaugePercentage * slingSpeedRootMult;
