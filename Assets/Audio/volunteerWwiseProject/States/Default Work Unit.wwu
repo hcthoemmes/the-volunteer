@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{9F2828D2-FB54-468F-84EE-AE45E949CA03}" SchemaVersion="103">
+<WwiseDocument Type="WorkUnit" ID="{B37444FF-A7B8-4C7C-B7FE-3A43B6EC1506}" SchemaVersion="103">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{9F2828D2-FB54-468F-84EE-AE45E949CA03}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{B37444FF-A7B8-4C7C-B7FE-3A43B6EC1506}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="GameState" ID="{CED0B7BB-E372-4CF3-AF76-37A7CC1669F9}">
+					<ChildrenList>
+						<State Name="None" ID="{66CC6FE8-7F63-4535-B2EC-056F1D3BEAAD}"/>
+						<State Name="InMenu" ID="{DB534671-28AE-4CE2-82A2-0016D92860D4}"/>
+						<State Name="InGame" ID="{2E91CA44-F0FC-4F1F-9A5B-3C25422AC9BC}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="PlayerState" ID="{A42ABAF6-7899-401C-AB85-080109DAF0D3}">
+					<ChildrenList>
+						<State Name="None" ID="{DA1DBBF3-92DA-4BA6-B8F3-9F9649591D63}"/>
+						<State Name="Alive" ID="{3233F692-AA34-41F8-A0CA-E73EDF852CA1}"/>
+						<State Name="Dead" ID="{2BF92FCF-090F-4080-B04D-901B8F5103B2}"/>
+						<State Name="LowHealth" ID="{FADDF25A-6BF4-41FE-AAE1-84CE2BCE5D95}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>

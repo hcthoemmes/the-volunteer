@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{1F4B5F05-D69C-4C0E-82D2-74A1D47D84F3}" SchemaVersion="103">
 	<Switches>
-		<WorkUnit Name="Default Work Unit" ID="{1F4B5F05-D69C-4C0E-82D2-74A1D47D84F3}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{1F4B5F05-D69C-4C0E-82D2-74A1D47D84F3}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="PlayerHealthSwitch" ID="{7730FD09-A94E-4A67-AD0D-2196A48A58D5}">
+					<ChildrenList>
+						<Switch Name="FullHealth" ID="{B08BE1C4-9192-4718-9B4D-FEC76D3F0605}"/>
+						<Switch Name="LowHealth" ID="{82814034-F77F-48CF-925D-4001982074EE}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</Switches>
 </WwiseDocument>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<WwiseDocument Type="WorkUnit" ID="{A77D4055-8555-4607-8A51-9E0824BBA30C}" SchemaVersion="103">
+<WwiseDocument Type="WorkUnit" ID="{F8BDC8B2-74F5-40EF-879F-76E9BD057851}" SchemaVersion="103">
 	<Busses>
-		<WorkUnit Name="Default Work Unit" ID="{A77D4055-8555-4607-8A51-9E0824BBA30C}" PersistMode="Standalone">
+		<WorkUnit Name="Default Work Unit" ID="{F8BDC8B2-74F5-40EF-879F-76E9BD057851}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
 					<ReferenceList>
@@ -9,6 +9,23 @@
 							<ObjectRef Name="System" ID="{D0BF024C-B651-4B52-A36D-0B96A8C22B50}" WorkUnitID="{75311739-D8BB-45F1-B5C7-B3E1DD9E307D}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="PlayerMaster" ID="{C8607264-06F2-45CF-B793-3F578337958B}">
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="EnemyMaster" ID="{F0F03464-EB9D-47BB-A212-0D8F7CEEEE28}">
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="UIMaster" ID="{62BDF7CC-F12F-474A-8DA4-7AC2D3236214}">
+							<ObjectLists/>
+						</Bus>
+						<Bus Name="MusicMaster" ID="{476A70ED-51DD-436C-9277-B2F3B4728968}">
+							<ObjectLists/>
+						</Bus>
+						<AuxBus Name="Reverb" ID="{4251A59D-4F86-4B14-8C73-74A487846B85}">
+							<ObjectLists/>
+						</AuxBus>
+					</ChildrenList>
 					<ObjectLists/>
 				</Bus>
 			</ChildrenList>
